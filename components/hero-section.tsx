@@ -156,7 +156,7 @@ export default function HeroSection() {
               Contact Me
             </Button>
             <Button
-              onClick={() => window.open('/Kamal_Sai_Tillari_Resume.html', '_blank')}
+              onClick={() => window.open('/kamalsaitillarigenai9.pdf', '_blank')}
               variant="outline"
               size="lg"
               className="border-green-500 text-green-400 hover:bg-green-500 hover:text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 bg-transparent"

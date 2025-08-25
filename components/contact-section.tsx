@@ -176,14 +176,14 @@ export default function ContactSection() {
                   <h4 className="text-lg font-semibold text-white">Resume</h4>
                 </div>
                 <Button
-                  onClick={() => window.open('/Kamal_Sai_Tillari_Resume.html', '_blank')}
+                  onClick={() => window.open('/kamalsaitillarigenai9.pdf', '_blank')}
                   size="sm"
                   className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white"
                 >
                   Download
                 </Button>
               </div>
-              <p className="text-gray-300 mt-2">Download my complete resume with detailed experience and projects.</p>
+              <p className="text-gray-300 mt-2">Download my complete resume as PDF with detailed experience and projects.</p>
             </motion.div>
           </motion.div>
 

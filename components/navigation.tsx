@@ -13,7 +13,7 @@ const navItems = [
   { name: "Projects", href: "#projects" },
   { name: "Certifications", href: "#certifications" },
   { name: "Contact", href: "#contact" },
-  { name: "Resume", href: "/Kamal_Sai_Tillari_Resume.html", external: true },
+  { name: "Resume", href: "/kamalsaitillarigenai9.pdf", external: true },
 ]
 
 export default function Navigation() {
