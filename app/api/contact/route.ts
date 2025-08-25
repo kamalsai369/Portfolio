@@ -29,43 +29,80 @@ export async function POST(request: Request) {
     console.log(`Message: ${message}`)
     console.log('---')
 
-    // Optional: Send actual email if environment variables are configured
+    // Email sending functionality with enhanced debugging
+    let emailSent = false
     try {
-      if (process.env.EMAIL_HOST && process.env.EMAIL_USER && process.env.EMAIL_PASS) {
-        const transporter = nodemailer.createTransport({
-          host: process.env.EMAIL_HOST,
+      // Check if all environment variables are available
+      const emailHost = process.env.EMAIL_HOST
+      const emailUser = process.env.EMAIL_USER
+      const emailPass = process.env.EMAIL_PASS
+
+      console.log('🔍 Environment check:')
+      console.log('EMAIL_HOST:', emailHost ? 'Set' : 'Missing')
+      console.log('EMAIL_USER:', emailUser ? 'Set' : 'Missing')
+      console.log('EMAIL_PASS:', emailPass ? 'Set' : 'Missing')
+
+      if (emailHost && emailUser && emailPass) {
+        console.log('🚀 Attempting to send email...')
+        
+        const transporter = nodemailer.createTransporter({
+          host: emailHost,
           port: 587,
           secure: false,
           auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS,
+            user: emailUser,
+            pass: emailPass,
           },
+          tls: {
+            rejectUnauthorized: false
+          }
         })
 
-        await transporter.sendMail({
-          from: process.env.EMAIL_USER,
-          to: 'tillarikamalsai@gmail.com', // Your email
+        // Verify transporter
+        await transporter.verify()
+        console.log('✅ SMTP connection verified')
+
+        // Send email
+        const info = await transporter.sendMail({
+          from: `"Portfolio Contact" <${emailUser}>`,
+          to: 'tillarikamalsai@gmail.com',
+          replyTo: email,
           subject: `Portfolio Contact: ${name}`,
           html: `
-            <h3>New Contact Form Submission</h3>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Message:</strong></p>
-            <p>${message.replace(/\n/g, '<br>')}</p>
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+              <h2 style="color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px;">
+                New Contact Form Submission
+              </h2>
+              <div style="background: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Submitted:</strong> ${new Date().toLocaleString()}</p>
+              </div>
+              <div style="background: white; padding: 20px; border-left: 4px solid #007bff;">
+                <h3>Message:</h3>
+                <p style="line-height: 1.6;">${message.replace(/\n/g, '<br>')}</p>
+              </div>
+            </div>
           `,
         })
 
-        console.log('✅ Email sent successfully')
+        console.log('✅ Email sent successfully:', info.messageId)
+        emailSent = true
+      } else {
+        console.log('⚠️ Email environment variables not configured')
       }
     } catch (emailError) {
-      console.log('📧 Email sending failed, but form submission logged:', emailError)
-      // Don't fail the request if email fails - the form submission is still recorded
+      console.error('❌ Email sending failed:', emailError)
+      // Continue without failing the request
     }
     
     return NextResponse.json(
       { 
         success: true, 
-        message: 'Thank you for your message! I\'ll get back to you soon.' 
+        message: emailSent 
+          ? 'Thank you for your message! Email sent successfully - I\'ll get back to you soon.' 
+          : 'Thank you for your message! It has been logged - I\'ll get back to you soon.',
+        emailSent: emailSent
       },
       { status: 200 }
     )
