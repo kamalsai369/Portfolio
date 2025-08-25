@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Image Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .project-card {
+            width: 400px;
+            height: 300px;
+            margin: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .agriculture {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 50%, #16a34a 100%);
+        }
+        .research {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
+        }
+        .movie {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        .title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        .tech-stack {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .tech {
+            background: rgba(255,255,255,0.2);
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Project Images for Portfolio</h1>
+        <p>Right-click on each image and "Save image as..." to download them for your portfolio.</p>
+        
+        <!-- Agriculture Assistant -->
+        <div class="project-card agriculture" id="agriculture">
+            <div class="overlay">
+                <div class="icon">🌾</div>
+                <div class="title">Agentic MCP RAG Assistant</div>
+                <div class="subtitle">AI-Powered Agriculture Advisory</div>
+                <div class="tech-stack">
+                    <span class="tech">AutoGen</span>
+                    <span class="tech">MCP</span>
+                    <span class="tech">Gemini API</span>
+                    <span class="tech">RAG</span>
+                    <span class="tech">Flask</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Assistant -->
+        <div class="project-card research" id="research">
+            <div class="overlay">
+                <div class="icon">🔬</div>
+                <div class="title">Research Assistant</div>
+                <div class="subtitle">LangGraph + Flask Architecture</div>
+                <div class="tech-stack">
+                    <span class="tech">LangGraph</span>
+                    <span class="tech">Flask</span>
+                    <span class="tech">Python</span>
+                    <span class="tech">Web Search</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Movie Recommendation -->
+        <div class="project-card movie" id="movie">
+            <div class="overlay">
+                <div class="icon">🎬</div>
+                <div class="title">Movie Recommendation</div>
+                <div class="subtitle">CrewAI Multi-Agent System</div>
+                <div class="tech-stack">
+                    <span class="tech">CrewAI</span>
+                    <span class="tech">Gemini API</span>
+                    <span class="tech">React</span>
+                    <span class="tech">Multi-Agent</span>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Function to download images
+            function downloadImage(elementId, filename) {
+                const element = document.getElementById(elementId);
+                html2canvas(element).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = filename;
+                    link.href = canvas.toDataURL();
+                    link.click();
+                });
+            }
+        </script>
+    </div>
+</body>
+</html>
