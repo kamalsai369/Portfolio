@@ -13,6 +13,7 @@ const navItems = [
   { name: "Projects", href: "#projects" },
   { name: "Certifications", href: "#certifications" },
   { name: "Contact", href: "#contact" },
+  { name: "Resume", href: "/Kamal_Sai_Tillari_Resume.html", external: true },
 ]
 
 export default function Navigation() {
@@ -27,10 +28,14 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+  const scrollToSection = (href: string, external?: boolean) => {
+    if (external) {
+      window.open(href, '_blank')
+    } else {
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+      }
     }
     setIsOpen(false)
   }
@@ -57,7 +62,7 @@ export default function Navigation() {
             {navItems.map((item) => (
               <motion.button
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => scrollToSection(item.href, (item as any).external)}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 className="text-gray-300 hover:text-white transition-colors duration-200"
@@ -89,7 +94,7 @@ export default function Navigation() {
               {navItems.map((item) => (
                 <motion.button
                   key={item.name}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => scrollToSection(item.href, (item as any).external)}
                   whileHover={{ x: 10 }}
                   className="block w-full text-left text-gray-300 hover:text-white py-2 transition-colors duration-200"
                 >

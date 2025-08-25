@@ -155,6 +155,17 @@ export default function HeroSection() {
               <Mail className="mr-2 h-4 w-4" />
               Contact Me
             </Button>
+            <Button
+              onClick={() => window.open('/Kamal_Sai_Tillari_Resume.html', '_blank')}
+              variant="outline"
+              size="lg"
+              className="border-green-500 text-green-400 hover:bg-green-500 hover:text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 bg-transparent"
+            >
+              <svg className="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Download Resume
+            </Button>
           </motion.div>
         </motion.div>
       </div>

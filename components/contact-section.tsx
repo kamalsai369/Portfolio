@@ -161,6 +161,30 @@ export default function ContactSection() {
               </div>
               <p className="text-gray-300">Available for remote work and open to relocation opportunities worldwide.</p>
             </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="p-6 bg-gradient-to-br from-green-900/20 to-emerald-900/20 rounded-lg border border-green-500/20"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <svg className="h-5 w-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <h4 className="text-lg font-semibold text-white">Resume</h4>
+                </div>
+                <Button
+                  onClick={() => window.open('/Kamal_Sai_Tillari_Resume.html', '_blank')}
+                  size="sm"
+                  className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white"
+                >
+                  Download
+                </Button>
+              </div>
+              <p className="text-gray-300 mt-2">Download my complete resume with detailed experience and projects.</p>
+            </motion.div>
           </motion.div>
 
           {/* Contact Form */}
