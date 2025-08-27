@@ -193,15 +193,27 @@ export default function ProjectsSection() {
                       size="sm"
                       className="border-purple-500/50 text-purple-300 hover:bg-purple-500/20 flex-1 bg-transparent"
                     >
+                      <a
+      href={project.github}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
                       <Github className="h-4 w-4 mr-2" />
                       Code
+                        </a>
                     </Button>
                     <Button
                       size="sm"
                       className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 flex-1"
                     >
+                       <a
+      href={project.demo}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Demo
+                         </a>
                     </Button>
                   </div>
                 </div>
