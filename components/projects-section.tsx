@@ -188,6 +188,11 @@ export default function ProjectsSection() {
 
                   {/* Action Buttons */}
                   <div className="flex space-x-3">
+                    <a
+      href={project.github}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
                     <Button
                       variant="outline"
                       size="sm"
@@ -196,6 +201,12 @@ export default function ProjectsSection() {
                       <Github className="h-4 w-4 mr-2" />
                       Code
                     </Button>
+                    </a>
+                     <a
+      href={project.demo}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
                     <Button
                       size="sm"
                       className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 flex-1"
@@ -203,6 +214,7 @@ export default function ProjectsSection() {
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Demo
                     </Button>
+                    </a>
                   </div>
                 </div>
 

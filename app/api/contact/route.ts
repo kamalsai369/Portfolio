@@ -45,7 +45,7 @@ export async function POST(request: Request) {
       if (emailHost && emailUser && emailPass) {
         console.log('🚀 Attempting to send email...')
         
-        const transporter = nodemailer.createTransporter({
+        const transporter = nodemailer.createTransport({
           host: emailHost,
           port: 587,
           secure: false,
