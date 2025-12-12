@@ -176,7 +176,7 @@ export default function ContactSection() {
                   <h4 className="text-lg font-semibold text-white">Resume</h4>
                 </div>
                 <Button
-                  onClick={() => window.open('/kamalsaitillarigenai9.pdf', '_blank')}
+                  onClick={() => window.open('/kamalsaitillarigenai10.pdf', '_blank')}
                   size="sm"
                   className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white"
                 >

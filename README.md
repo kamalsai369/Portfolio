@@ -134,7 +134,7 @@ npm start
 ## 📄 Resume
 
 The portfolio includes resume download functionality:
-- PDF format: `kamalsaitillarigenai9.pdf`
+- PDF format: `kamalsaitillarigenai10.pdf`
 - Accessible from navigation, hero section, and contact section
 - API endpoint: `/api/resume`
 

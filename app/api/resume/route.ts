@@ -4,7 +4,7 @@ import path from 'path'
 
 export async function GET() {
   try {
-    const resumePath = path.join(process.cwd(), 'public', 'kamalsaitillarigenai9.pdf')
+    const resumePath = path.join(process.cwd(), 'public', 'kamalsaitillarigenai10.pdf')
     const resumeContent = fs.readFileSync(resumePath)
     
     return new NextResponse(resumeContent, {
